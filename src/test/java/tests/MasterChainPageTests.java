@@ -20,6 +20,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
+@Tag("fullTests")
 public class MasterChainPageTests extends TestBase {
 
     @DisplayName("Переход на главную страницу при клике на лого сайта")
