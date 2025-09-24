@@ -20,11 +20,12 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-
+@Tag("fullTests")
 public class MasterChainPageTests extends TestBase {
 
     @DisplayName("Переход на главную страницу при клике на лого сайта")
     @Test
+    @Tag("simple")
     void logoLinkToMainPageTest() {
 
         step("Открываем главную страницу Master Chain", () -> {
@@ -46,6 +47,7 @@ public class MasterChainPageTests extends TestBase {
 
     @DisplayName("Страница 'Контакты' содержит ожидаемый адрес, телефон и email")
     @Test
+    @Tag("simple")
     void contactPageContentTest() {
 
         step("Открываем главную страницу Master Chain", () -> {
@@ -71,6 +73,7 @@ public class MasterChainPageTests extends TestBase {
 
     @DisplayName("Ссылка 'Устав' скачивает устав компании")
     @Test
+    @Tag("simple")
     void pdfOrganisationChartTest() throws Exception {
 
         step("Открываем главную страницу Master Chain", () -> {
@@ -93,6 +96,7 @@ public class MasterChainPageTests extends TestBase {
 
     @MethodSource
     @ParameterizedTest(name = "Меню {0} содержит ожидаемый список пунктов {1}")
+    @Tag("menu")
     void mainMenuContentTest(
             MenuItems item,
             List<String> line
@@ -113,6 +117,7 @@ public class MasterChainPageTests extends TestBase {
 
     @Test
     @DisplayName("Ссылка главного меню загружает нужную страницу")
+    @Tag("menu")
     void mainMenuLinkTest() {
         String menuItem = System.getProperty("menuItem","Цифровые финансовые активы");;
         step("Открываем главную страницу Master Chain", () -> {
