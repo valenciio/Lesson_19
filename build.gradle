@@ -66,6 +66,9 @@ test {
     useJUnitPlatform()
 }
 
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+}
 
 task simple_test(type: Test) {
     useJUnitPlatform { includeTags("simple") }
