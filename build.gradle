@@ -65,18 +65,3 @@ compileTestJava {
 test {
     useJUnitPlatform()
 }
-
-tasks.withType(Test) {
-    systemProperties(System.getProperties())
-}
-task full_test(type: Test) {
-    useJUnitPlatform { includeTags("fullTests") }
-}
-
-task simple_test(type: Test) {
-    useJUnitPlatform { includeTags("simple") }
-}
-
-task menu_test(type: Test) {
-    useJUnitPlatform { includeTags("menu") }
-}
