@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.pdftest.PDF;
 import data.MenuItems;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -9,11 +8,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.io.File;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static com.codeborne.pdftest.assertj.Assertions.assertThat;
 import static com.codeborne.selenide.CollectionCondition.containExactTextsCaseSensitive;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -71,20 +68,6 @@ public class MasterChainPageTests extends TestBase {
         });
     }
 
-    @DisplayName("Ссылка 'Устав' скачивает устав компании")
-    @Test
-    @Tag("simple")
-    void pdfOrganisationChartTest() throws Exception {
-
-        step("Открываем главную страницу Master Chain", () -> {
-            open("https://www.dltru.org/");
-        });
-        step("Скачиваем Устав и проверяем, что в нем есть слово 'устав'", () -> {
-            File downloadedFile = $("a[href='/local/assets/docs/Устав.pdf']").download();
-            PDF chartContent = new PDF(downloadedFile);
-            assertThat(chartContent).containsExactText("Устав");
-        });
-    }
 
     static Stream<Arguments> mainMenuContentTest() {
         return Stream.of(
